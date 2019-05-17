@@ -429,7 +429,6 @@
     // 获取最大滚动范围
     CGFloat maxOffsetX = self.scrollView.contentSize.width - self.frame.size.width;
     if (offsetX > maxOffsetX) offsetX = maxOffsetX;
-    if (offsetX < 0) offsetX = 0;
     // 滚动标题滚动条
     [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
