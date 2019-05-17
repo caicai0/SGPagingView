@@ -20,6 +20,10 @@
 		182513E91F21D1600039F4A2 /* UIView+SGPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182513DD1F21D1600039F4A2 /* UIView+SGPagingView.m */; };
 		182513EA1F21D1600039F4A2 /* SGPageContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182513E01F21D1600039F4A2 /* SGPageContentScrollView.m */; };
 		18B036D21F21D835004C7DE7 /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B036D11F21D835004C7DE7 /* SGPageTitleView.m */; };
+		4B7BECC5228D39B600CC8308 /* TESTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECC4228D39B600CC8308 /* TESTViewController.m */; };
+		4B7BECCB228D579600CC8308 /* SGPageContentScrollView+multable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECCA228D579600CC8308 /* SGPageContentScrollView+multable.m */; };
+		4B7BECCE228D582E00CC8308 /* SGPageContentCollectionView+mutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECCD228D582E00CC8308 /* SGPageContentCollectionView+mutable.m */; };
+		4B7BECD1228D62A000CC8308 /* SGPageTitleView+multable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECD0228D62A000CC8308 /* SGPageTitleView+multable.m */; };
 		8D0F8E311FD95DE300F30426 /* DefaultCoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F8E1E1FD95DE300F30426 /* DefaultCoverVC.m */; };
 		8D0F8E321FD95DE300F30426 /* DefaultFixedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F8E201FD95DE300F30426 /* DefaultFixedVC.m */; };
 		8D0F8E331FD95DE300F30426 /* DefaultGradientEffectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F8E221FD95DE300F30426 /* DefaultGradientEffectVC.m */; };
@@ -107,6 +111,14 @@
 		182513EE1F21D2C90039F4A2 /* SGPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPagingView.h; sourceTree = "<group>"; };
 		18B036D01F21D835004C7DE7 /* SGPageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageTitleView.h; sourceTree = "<group>"; };
 		18B036D11F21D835004C7DE7 /* SGPageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPageTitleView.m; sourceTree = "<group>"; };
+		4B7BECC3228D39B600CC8308 /* TESTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TESTViewController.h; sourceTree = "<group>"; };
+		4B7BECC4228D39B600CC8308 /* TESTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TESTViewController.m; sourceTree = "<group>"; };
+		4B7BECC9228D579600CC8308 /* SGPageContentScrollView+multable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGPageContentScrollView+multable.h"; sourceTree = "<group>"; };
+		4B7BECCA228D579600CC8308 /* SGPageContentScrollView+multable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SGPageContentScrollView+multable.m"; sourceTree = "<group>"; };
+		4B7BECCC228D582E00CC8308 /* SGPageContentCollectionView+mutable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGPageContentCollectionView+mutable.h"; sourceTree = "<group>"; };
+		4B7BECCD228D582E00CC8308 /* SGPageContentCollectionView+mutable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SGPageContentCollectionView+mutable.m"; sourceTree = "<group>"; };
+		4B7BECCF228D62A000CC8308 /* SGPageTitleView+multable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGPageTitleView+multable.h"; sourceTree = "<group>"; };
+		4B7BECD0228D62A000CC8308 /* SGPageTitleView+multable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SGPageTitleView+multable.m"; sourceTree = "<group>"; };
 		8D0F8E1D1FD95DE300F30426 /* DefaultCoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCoverVC.h; sourceTree = "<group>"; };
 		8D0F8E1E1FD95DE300F30426 /* DefaultCoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCoverVC.m; sourceTree = "<group>"; };
 		8D0F8E1F1FD95DE300F30426 /* DefaultFixedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultFixedVC.h; sourceTree = "<group>"; };
@@ -315,10 +327,16 @@
 		182513DB1F21D1600039F4A2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4B7BECC9228D579600CC8308 /* SGPageContentScrollView+multable.h */,
+				4B7BECCA228D579600CC8308 /* SGPageContentScrollView+multable.m */,
+				4B7BECCC228D582E00CC8308 /* SGPageContentCollectionView+mutable.h */,
+				4B7BECCD228D582E00CC8308 /* SGPageContentCollectionView+mutable.m */,
 				8DA4304220BBEDEC00C47917 /* UIButton+SGPagingView.h */,
 				8DA4304320BBEDEC00C47917 /* UIButton+SGPagingView.m */,
 				182513DC1F21D1600039F4A2 /* UIView+SGPagingView.h */,
 				182513DD1F21D1600039F4A2 /* UIView+SGPagingView.m */,
+				4B7BECCF228D62A000CC8308 /* SGPageTitleView+multable.h */,
+				4B7BECD0228D62A000CC8308 /* SGPageTitleView+multable.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -376,6 +394,8 @@
 				8D5E68CE20F2FA140068044C /* DefaultAnimatedVC.m */,
 				8D1A05F620B441B800743EAD /* DefaultAttributedTitleVC.h */,
 				8D1A05F720B441B800743EAD /* DefaultAttributedTitleVC.m */,
+				4B7BECC3228D39B600CC8308 /* TESTViewController.h */,
+				4B7BECC4228D39B600CC8308 /* TESTViewController.m */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -495,11 +515,12 @@
 		182513381F21CAC30039F4A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Sorgle;
 				TargetAttributes = {
 					1825133F1F21CAC30039F4A2 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3F685LX6UR;
 						ProvisioningStyle = Automatic;
 					};
 					182513581F21CAC30039F4A2 = {
@@ -519,6 +540,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -579,6 +601,8 @@
 				8D0F8E641FD95E2300F30426 /* ChildFourthPopGestureVC.m in Sources */,
 				8D0F8E381FD95DE300F30426 /* DefaultThreeCoverVC.m in Sources */,
 				1825134B1F21CAC30039F4A2 /* ViewController.m in Sources */,
+				4B7BECCE228D582E00CC8308 /* SGPageContentCollectionView+mutable.m in Sources */,
+				4B7BECCB228D579600CC8308 /* SGPageContentScrollView+multable.m in Sources */,
 				8DA4304420BBEDEC00C47917 /* UIButton+SGPagingView.m in Sources */,
 				18B036D21F21D835004C7DE7 /* SGPageTitleView.m in Sources */,
 				8DA4304120BBE3D600C47917 /* SGPageContentCollectionView.m in Sources */,
@@ -601,6 +625,7 @@
 				8D0F8E6C1FD95E2300F30426 /* ChildVCNine.m in Sources */,
 				9A3EDE201FF4C5C600DC1EB2 /* DefaultDynamicVC.m in Sources */,
 				8D0F8E721FD95E2300F30426 /* ChildVCTwo.m in Sources */,
+				4B7BECC5228D39B600CC8308 /* TESTViewController.m in Sources */,
 				8D5BB749213AC570000E929E /* SGPagingViewPopGestureVC.m in Sources */,
 				8D0F8E6A1FD95E2300F30426 /* ChildVCFull.m in Sources */,
 				8DF628F720A94CBA00B7B85A /* DefaultSystemVC.m in Sources */,
@@ -610,6 +635,7 @@
 				8D0F8E321FD95DE300F30426 /* DefaultFixedVC.m in Sources */,
 				182513451F21CAC30039F4A2 /* main.m in Sources */,
 				8D0F8E331FD95DE300F30426 /* DefaultGradientEffectVC.m in Sources */,
+				4B7BECD1228D62A000CC8308 /* SGPageTitleView+multable.m in Sources */,
 				8D0F8E311FD95DE300F30426 /* DefaultCoverVC.m in Sources */,
 				8D1A05F820B441B800743EAD /* DefaultAttributedTitleVC.m in Sources */,
 				8D0F8E701FD95E2300F30426 /* ChildVCThree.m in Sources */,
@@ -672,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -728,6 +755,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -780,7 +808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3F685LX6UR;
 				INFOPLIST_FILE = SGPagingViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SGPagingViewExample;
@@ -795,7 +823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3F685LX6UR;
 				INFOPLIST_FILE = SGPagingViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SGPagingViewExample;
