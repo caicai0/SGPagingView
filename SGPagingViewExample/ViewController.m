@@ -114,7 +114,7 @@
         DefaultAttributedTitleVC *attributedTitleVC = [[DefaultAttributedTitleVC alloc] init];
         [self.navigationController pushViewController:attributedTitleVC animated:YES];
       
-    }else {
+    } else {
         NavigationBarVC *VC = [[NavigationBarVC alloc] init];
         UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:VC];
         // 问题：模态的时候有延迟，而且延迟比较厉害。第一次遇到这种问题；上网查了一下，网上给出的答案：由于某种原因： presentViewController:animated:completion 里的内容并不会真的马上触发执行，除非有一个主线程事件触发。比如在弹出慢的时候，你随便点击一下屏幕，马上就能弹出来；这个我亲自测试了是这种情况
