@@ -137,9 +137,14 @@
             btnH = selfHeight;
         }
         [self.btnMArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            CGFloat btnWidth = btnW;
             CGFloat btnX = btnW * idx;
             UIButton *btn = obj;
-            btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+            if (self.configure.averageSpace) {
+                CGSize tempSize = [self P_sizeWithString:self.titleArr[idx] font:self.configure.titleFont];
+                btnWidth = tempSize.width + self.configure.titleAdditionalWidth;
+            }
+            btn.frame = CGRectMake(btnX, btnY, btnWidth, btnH);
         }];
         self.scrollView.contentSize = CGSizeMake(self.frame.size.width, selfHeight);
         // 2.2、布局标题间分割线的 frame
