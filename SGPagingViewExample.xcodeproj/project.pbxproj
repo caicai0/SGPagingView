@@ -20,7 +20,6 @@
 		182513E91F21D1600039F4A2 /* UIView+SGPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182513DD1F21D1600039F4A2 /* UIView+SGPagingView.m */; };
 		182513EA1F21D1600039F4A2 /* SGPageContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182513E01F21D1600039F4A2 /* SGPageContentScrollView.m */; };
 		18B036D21F21D835004C7DE7 /* SGPageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B036D11F21D835004C7DE7 /* SGPageTitleView.m */; };
-		4B7BECC5228D39B600CC8308 /* TESTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECC4228D39B600CC8308 /* TESTViewController.m */; };
 		4B7BECCB228D579600CC8308 /* SGPageContentScrollView+multable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECCA228D579600CC8308 /* SGPageContentScrollView+multable.m */; };
 		4B7BECCE228D582E00CC8308 /* SGPageContentCollectionView+mutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECCD228D582E00CC8308 /* SGPageContentCollectionView+mutable.m */; };
 		4B7BECD1228D62A000CC8308 /* SGPageTitleView+multable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BECD0228D62A000CC8308 /* SGPageTitleView+multable.m */; };
@@ -111,8 +110,6 @@
 		182513EE1F21D2C90039F4A2 /* SGPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPagingView.h; sourceTree = "<group>"; };
 		18B036D01F21D835004C7DE7 /* SGPageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageTitleView.h; sourceTree = "<group>"; };
 		18B036D11F21D835004C7DE7 /* SGPageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPageTitleView.m; sourceTree = "<group>"; };
-		4B7BECC3228D39B600CC8308 /* TESTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TESTViewController.h; sourceTree = "<group>"; };
-		4B7BECC4228D39B600CC8308 /* TESTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TESTViewController.m; sourceTree = "<group>"; };
 		4B7BECC9228D579600CC8308 /* SGPageContentScrollView+multable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGPageContentScrollView+multable.h"; sourceTree = "<group>"; };
 		4B7BECCA228D579600CC8308 /* SGPageContentScrollView+multable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SGPageContentScrollView+multable.m"; sourceTree = "<group>"; };
 		4B7BECCC228D582E00CC8308 /* SGPageContentCollectionView+mutable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGPageContentCollectionView+mutable.h"; sourceTree = "<group>"; };
@@ -394,8 +391,6 @@
 				8D5E68CE20F2FA140068044C /* DefaultAnimatedVC.m */,
 				8D1A05F620B441B800743EAD /* DefaultAttributedTitleVC.h */,
 				8D1A05F720B441B800743EAD /* DefaultAttributedTitleVC.m */,
-				4B7BECC3228D39B600CC8308 /* TESTViewController.h */,
-				4B7BECC4228D39B600CC8308 /* TESTViewController.m */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -625,7 +620,6 @@
 				8D0F8E6C1FD95E2300F30426 /* ChildVCNine.m in Sources */,
 				9A3EDE201FF4C5C600DC1EB2 /* DefaultDynamicVC.m in Sources */,
 				8D0F8E721FD95E2300F30426 /* ChildVCTwo.m in Sources */,
-				4B7BECC5228D39B600CC8308 /* TESTViewController.m in Sources */,
 				8D5BB749213AC570000E929E /* SGPagingViewPopGestureVC.m in Sources */,
 				8D0F8E6A1FD95E2300F30426 /* ChildVCFull.m in Sources */,
 				8DF628F720A94CBA00B7B85A /* DefaultSystemVC.m in Sources */,
