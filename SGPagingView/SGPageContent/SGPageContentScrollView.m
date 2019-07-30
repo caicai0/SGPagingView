@@ -52,6 +52,8 @@
 - (void)initialization {
     _startOffsetX = 0;
     _previousCVCIndex = -1;
+    _leftDistance = 0;
+    _isAllLeftDistance = YES;
 }
 
 - (void)setupSubviews {
@@ -86,7 +88,24 @@
     }
     return _scrollView;
 }
-
+#pragma mark - - - hitTest
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    UIView *orgrinView = [super hitTest:point withEvent:event];
+    if (self.leftDistance > 0 && self.leftDistance <= 1) {
+        int location_X = self.leftDistance * [UIScreen mainScreen].bounds.size.width;
+        if (_isAllLeftDistance) {
+            if (point.x > 0 && point.x < location_X) {
+                return nil;
+            }
+        }else{
+            CGPoint location = [self.scrollView convertPoint:point fromView:self]; //手势在scrollview上的坐标
+            if (location.x > 0 && location.x < location_X) {
+                return nil;
+            }
+        }
+    }
+    return orgrinView;
+}
 #pragma mark - - - UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _startOffsetX = scrollView.contentOffset.x;

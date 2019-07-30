@@ -57,7 +57,10 @@
 @property (nonatomic, assign) BOOL isScrollEnabled;
 /** 点击标题触发动画切换滚动内容，默认为 NO */
 @property (nonatomic, assign) BOOL isAnimated;
-
+/** 左滑返回生效的距离，默认为0，不生效 范围 0 - 1 */
+@property (nonatomic, assign) CGFloat leftDistance;
+/** 左滑返回生效页面是不是全部页面，默认为YES */
+@property (nonatomic, assign) BOOL isAllLeftDistance;
 /** 给外界提供的方法，根据 SGPageTitleView 标题选中时的下标并显示相应的子控制器 */
 - (void)setPageContentScrollViewCurrentIndex:(NSInteger)currentIndex;
 
