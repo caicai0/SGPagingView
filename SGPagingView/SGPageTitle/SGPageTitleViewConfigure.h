@@ -31,7 +31,8 @@ typedef enum : NSUInteger {
 @interface SGPageTitleViewConfigure : NSObject
 /** 类方法创建 */
 + (instancetype)pageTitleViewConfigure;
-
+#pragma mark -- 布局属性
+@property (nonatomic, assign)BOOL alwaysScrollEnable; 
 #pragma mark - - SGPageTitleView 属性
 /** SGPageTitleView 是否需要弹性效果，默认为 YES */
 @property (nonatomic, assign) BOOL needBounces;
@@ -39,6 +40,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL showBottomSeparator;
 /* SGPageTitleView 底部分割线颜色，默认为 lightGrayColor */
 @property (nonatomic, strong) UIColor *bottomSeparatorColor;
+//整体内容的内边距
+@property (nonatomic, assign) UIEdgeInsets contentInsets;
+//标题直接的间距空间
+@property (nonatomic, assign) CGFloat titleSpace;
 /* 当空间富余时是否均分*/
 @property (nonatomic, assign) BOOL averageSpace;
 
@@ -104,5 +109,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) CGFloat badgeSize;
 /** badge 偏移量，默认（0，0）*/
 @property (nonatomic, assign) CGPoint badgeOff;
+
+@property (nonatomic, copy)Class buttonClass;
 
 @end

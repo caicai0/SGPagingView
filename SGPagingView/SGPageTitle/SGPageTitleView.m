@@ -11,9 +11,7 @@
 #import "UIButton+SGPagingView.h"
 #import "SGPageTitleViewConfigure.h"
 
-#pragma mark - - - SGPageTitleButton
-@interface SGPageTitleButton : UIButton
-@end
+
 @implementation SGPageTitleButton
 - (void)setHighlighted:(BOOL)highlighted {
     
@@ -24,8 +22,6 @@
 @interface SGPageTitleView ()
 /// SGPageTitleViewDelegate
 @property (nonatomic, weak) id<SGPageTitleViewDelegate> delegatePageTitleView;
-/// SGPageTitleView 配置信息
-@property (nonatomic, strong) SGPageTitleViewConfigure *configure;
 /// scrollView
 @property (nonatomic, strong) UIScrollView *scrollView;
 /// 指示器
@@ -127,7 +123,7 @@
     _scrollView.frame = CGRectMake(0, 0, self.frame.size.width, selfHeight);
     // 2、布局标题按钮的 frame
     NSInteger titleCount = self.titleArr.count;
-    if (self.allBtnWidth <= self.bounds.size.width) { // SGPageTitleView 静止样式
+    if (self.allBtnWidth <= self.bounds.size.width && !self.configure.alwaysScrollEnable) { // SGPageTitleView 静止样式
         CGFloat btnY = 0;
         CGFloat btnW = self.frame.size.width / titleCount;
         CGFloat btnH = 0;
@@ -163,23 +159,23 @@
         }
         
     } else { // SGPageTitleView 滚动样式
-        __block CGFloat btnX = 0;
+        __block CGFloat btnX = self.configure.contentInsets.left;
         CGFloat btnY = 0;
         CGFloat btnH = 0;
         if (self.configure.indicatorStyle == SGIndicatorStyleDefault) {
-            btnH = selfHeight - self.configure.indicatorHeight;
+            btnH = selfHeight - self.configure.indicatorHeight - self.configure.contentInsets.top - self.configure.contentInsets.bottom;
         } else {
-            btnH = selfHeight;
+            btnH = selfHeight - self.configure.contentInsets.top - self.configure.contentInsets.bottom;
         }
         [self.btnMArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             CGSize tempSize = [self P_sizeWithString:self.titleArr[idx] font:self.configure.titleFont];
             CGFloat btnW = tempSize.width + self.configure.titleAdditionalWidth;
             UIButton *btn = obj;
-            btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
-            btnX = btnX + btnW;
+            btn.frame = CGRectMake(btnX, btnY + self.configure.contentInsets.top, btnW, btnH);
+            btnX = btnX + btnW + self.configure.titleSpace;
         }];
         UIButton *lastBtn = self.btnMArr.lastObject;
-        CGFloat scrollViewWidth = CGRectGetMaxX(lastBtn.frame);
+        CGFloat scrollViewWidth = CGRectGetMaxX(lastBtn.frame) + self.configure.contentInsets.right;
         self.scrollView.contentSize = CGSizeMake(scrollViewWidth, selfHeight);
         // 2.2、布局标题间分割线的 frame
         if (self.configure.showVerticalSeparator) {
@@ -306,11 +302,18 @@
         self.allBtnTextWidth += tempWidth;
     }];
     // 所有按钮文字宽度 ＋ 所有按钮额外增加的宽度
-    self.allBtnWidth = self.allBtnTextWidth + self.configure.titleAdditionalWidth * titleCount;
+    CGFloat allSpace = ((titleCount-1) >= 0) ? (self.configure.titleSpace * (titleCount-1)) : 0 ;
+    self.allBtnWidth = self.allBtnTextWidth + self.configure.titleAdditionalWidth * titleCount + allSpace;
     self.allBtnWidth = ceilf(self.allBtnWidth);
-    if (self.allBtnWidth <= self.bounds.size.width) { // SGPageTitleView 静止样式
+    if (self.allBtnWidth <= self.bounds.size.width  && !self.configure.alwaysScrollEnable) { // SGPageTitleView 静止样式
         for (NSInteger index = 0; index < titleCount; index++) {
-            SGPageTitleButton *btn = [[SGPageTitleButton alloc] init];
+            SGPageTitleButton *btn = nil;
+            if (self.configure.buttonClass) {
+                btn = [[self.configure.buttonClass alloc]init];
+            }else{
+                btn = [[SGPageTitleButton alloc] init];
+            }
+            
             btn.tag = index;
             btn.titleLabel.font = self.configure.titleFont;
             [btn setTitle:self.titleArr[index] forState:(UIControlStateNormal)];
@@ -324,7 +327,12 @@
     } else { // SGPageTitleView 滚动样式
         for (NSInteger index = 0; index < titleCount; index++) {
             // 1、添加按钮
-            SGPageTitleButton *btn = [[SGPageTitleButton alloc] init];
+            SGPageTitleButton *btn = nil;
+            if (self.configure.buttonClass) {
+                btn = [[self.configure.buttonClass alloc]init];
+            }else{
+                btn = [[SGPageTitleButton alloc] init];
+            }
             btn.tag = index;
             btn.titleLabel.font = self.configure.titleFont;
             [btn setTitle:self.titleArr[index] forState:(UIControlStateNormal)];
@@ -357,7 +365,7 @@
     // 1、改变按钮的选择状态
     [self P_changeSelectedButton:button];
     // 2、标题滚动样式下选中标题居中处理
-    if (self.allBtnWidth > self.frame.size.width) {
+    if (self.allBtnWidth > self.frame.size.width || self.configure.alwaysScrollEnable) {
         _signBtnClick = YES;
         [self P_selectedBtnCenter:button];
     }
@@ -434,6 +442,7 @@
     // 获取最大滚动范围
     CGFloat maxOffsetX = self.scrollView.contentSize.width - self.frame.size.width;
     if (offsetX > maxOffsetX) offsetX = maxOffsetX;
+    if (offsetX < 0) offsetX = 0;
     // 滚动标题滚动条
     [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
@@ -476,14 +485,14 @@
     UIButton *targetBtn = self.btnMArr[targetIndex];
     _signBtnIndex = targetBtn.tag;
     // 2、标题滚动样式下选中标题居中处理
-    if (self.allBtnWidth > self.frame.size.width) {
+    if (self.allBtnWidth > self.frame.size.width || self.configure.alwaysScrollEnable) {
         if (_signBtnClick == NO) {
             [self P_selectedBtnCenter:targetBtn];
         }
         _signBtnClick = NO;
     }
     // 3、处理指示器的逻辑
-    if (self.allBtnWidth <= self.bounds.size.width) { /// SGPageTitleView 静止样式
+    if (self.allBtnWidth <= self.bounds.size.width  && !self.configure.alwaysScrollEnable) { /// SGPageTitleView 静止样式
         if (self.configure.indicatorScrollStyle == SGIndicatorScrollStyleDefault) {
             [self P_staticIndicatorScrollStyleDefaultWithProgress:progress originalBtn:originalBtn targetBtn:targetBtn];
         } else {

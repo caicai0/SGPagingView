@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 @class SGPageTitleViewConfigure, SGPageTitleView;
 
+#pragma mark - - - SGPageTitleButton
+@interface SGPageTitleButton : UIButton
+@end
+
 typedef enum : NSUInteger {
     /// 图片在左，文字在右
     SGImagePositionTypeDefault,
@@ -57,6 +61,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSInteger selectedIndex;
 /** 重置选中标题按钮下标（用于子控制器内的点击事件改变标题的选中下标）*/
 @property (nonatomic, assign) NSInteger resetSelectedIndex;
+/// SGPageTitleView 配置信息
+@property (nonatomic, strong) SGPageTitleViewConfigure *configure;
 
 /** 根据标题下标值添加 badge */
 - (void)addBadgeForIndex:(NSInteger)index;
